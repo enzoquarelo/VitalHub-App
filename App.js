@@ -47,7 +47,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AppointmentLocation">
+      <Stack.Navigator initialRouteName="Home">
 
         <Stack.Screen
           name="Navigation"

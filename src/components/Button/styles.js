@@ -27,6 +27,8 @@ export const TitleButton = styled.Text`
 `;
 
 export const SelectableButton = styled(CustomButton)`
+    background-color: #FFFFFF;
+
     ${(props) => props.selected && `
         background-color: #496BBA; 
         border: 2px solid #496BBA; 
@@ -34,6 +36,7 @@ export const SelectableButton = styled(CustomButton)`
 `;
 
 export const SelectableTitleButton = styled(TitleButton)`
+    color: #496BBA;
     ${(props) => props.selected && `
         color: white;
     `}
