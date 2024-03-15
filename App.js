@@ -12,6 +12,7 @@ import { CreateAccount } from './src/screens/CreateAccount/CreateAccount';
 import { Home } from './src/screens/Home/Home';
 import { NavigationScreen } from './src/screens/Navigation/NavigationScreen';
 import { AppointmentLocation } from './src/screens/AppointmentLocation/AppointmentLocation';
+import { ViewPrescription } from './src/screens/ViewPrescription/ViewPrescription';
 
 // Importe das Fontes
 import {
@@ -47,7 +48,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Navigation">
 
         <Stack.Screen
           name="Navigation"
@@ -100,6 +101,12 @@ export default function App() {
         <Stack.Screen
           name="AppointmentLocation"
           component={AppointmentLocation}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="ViewPrescription"
+          component={ViewPrescription}
           options={{ headerShown: false }}
         />
 

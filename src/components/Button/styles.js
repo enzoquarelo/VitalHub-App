@@ -4,7 +4,10 @@ export const CustomButton = styled.TouchableOpacity`
     width: ${props => (props.widthButton ? props.widthButton + "%" : "88%")};
     height: ${props => (props.heightButton ? props.heightButton + "px" : "55px")};
 
-    border: 2px solid #496BBA;
+    ${props => props.showBorder !== false && `
+    border-width: 2px;
+    border-color: #496BBA;
+    `}
     border-radius: 5px;
     background-color: ${(props) => props.backgroundBtn ? props.backgroundBtn : "#496BBA"};
 

@@ -23,6 +23,8 @@ export const InputDisable = styled(Input).attrs(props => ({
     color: #33303E;
 
     font-family: ${props => (props.fontInput ? props.fontInput : "MontserratAlternates_500Medium")};
+
+    elevation: 1;
 `
 
 export const TitleInput = styled.Text`

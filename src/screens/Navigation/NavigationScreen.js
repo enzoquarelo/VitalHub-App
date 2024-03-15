@@ -18,6 +18,10 @@ export const NavigationScreen = ({ navigation }) => {
                 <TouchableOpacity onPress={() => navigation.navigate("AppointmentLocation")}>
                     <Text>Maps</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => navigation.navigate("ViewPrescription")}>
+                    <Text>ViewPrescription</Text>
+                </TouchableOpacity>
             </Container></>
     );
 }

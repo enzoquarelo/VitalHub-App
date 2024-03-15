@@ -5,20 +5,21 @@ import { Title } from '../Title/style'
 
 export const Cards = ({imageHeader, profileName}) => {
     return (
-        <CardContainer>
-            <ImagePerson/>
-            <Container>
+        // <CardContainer>
+        //     <ImagePerson/>
+        //     <Container>
 
-                <Container>
-                    <Title fontSize={16}>Nome Pessoa</Title>
-                    <DefaultText>20 anos</DefaultText>
-                </Container>
+        //         <Container>
+        //             <Title fontSize={16}>Nome Pessoa</Title>
+        //             <DefaultText>20 anos</DefaultText>
+        //         </Container>
 
-                <Container>
+        //         <Container>
 
-                </Container>
+        //         </Container>
 
-            </Container>
-        </CardContainer>
+        //     </Container>
+        // </CardContainer>
+        <></>
     )
 }
