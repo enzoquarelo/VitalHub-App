@@ -31,6 +31,8 @@ export const BtnCapture = styled.TouchableOpacity`
     background-color: white;
     border: 5px solid white;
 
+    margin-left: 35%;
+
     align-items: 'center';
     justify-content: 'center';
 `
@@ -44,11 +46,17 @@ export const BtnFlip = styled.TouchableOpacity`
     justify-content: center;
 `
 
-export const BtnFlash = styled.TouchableOpacity`
-    width: 60px;
-    height: 60px;
-
-    display: flex;
-    align-items: center;
+export const ConatinerImage = styled.View`
     justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+`
+
+export const Photo = styled.Image`
+    width: 90%;
+    height: 80%;
+
+    border-radius: 5px;
+
+    margin-top: 5%;
 `

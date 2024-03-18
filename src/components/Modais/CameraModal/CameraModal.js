@@ -1,15 +1,16 @@
-import { React, useRef, useState, useEffect } from 'react';
-import { Modal, View, StyleSheet, StatusBar } from 'react-native';
+import React, { useRef, useState, useEffect } from 'react';
+import { Modal, StyleSheet, StatusBar, TouchableOpacity, Text } from 'react-native';
 
-import { BtnCapture, BtnFlash, BtnFlip, ContainerButtonsCamera } from './style';
+import { BtnCapture, BtnFlip, ContainerButtonsCamera, ConatinerImage, Photo } from './style';
 
-import { Camera, CameraType, FlashMode } from 'expo-camera';
+import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from "expo-media-library";
 
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import { ButtonDisable, CustomButton, TitleButton } from '../../Button/styles';
+import { Container } from '../../Container/style';
 
-
-const ModalCamera = ({ visible, onClose, title }) => {
+const ModalCamera = ({ visible, onClose, title, onConfirm }) => {
     const cameraRef = useRef(null);
 
     const [photo, setPhoto] = useState(null);
@@ -18,66 +19,93 @@ const ModalCamera = ({ visible, onClose, title }) => {
     const [flashMode, setFlashMode] = useState(Camera.Constants.FlashMode.off);
 
     async function CapturePhoto() {
-        if (cameraRef) {
+        if (cameraRef.current) {
             const photo = await cameraRef.current.takePictureAsync();
 
-            console.log(photo)
+            if (photo) {
+                setPhoto(photo.uri);
+                setOpenModal(true);
+            } else {
+                console.log("Falha ao capturar foto");
+            }
         }
     }
 
     useEffect(() => {
         (async () => {
-            const { status: cameraStatus } = await Camera.requestCameraPermissionsAsync()
-
-            const { status: mediaStatus } = await MediaLibrary.requestPermissionsAsync()
+            const { status: cameraStatus } = await Camera.requestCameraPermissionsAsync();
+            const { status: mediaStatus } = await MediaLibrary.requestPermissionsAsync();
         })();
     }, [])
 
     return (
-        <Modal
-            animationType="slide"
-            transparent={true}
-            visible={visible}
-            onRequestClose={onClose}
-        >
-            <Camera
-                ref={cameraRef}
-                type={cameraType}
-                flashMode={flashMode}
-                style={styles.camera}
-                ratio={'16:9'}
+        <>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={visible}
+                onRequestClose={onClose}
             >
+                <Camera
+                    ref={cameraRef}
+                    type={cameraType}
+                    flashMode={flashMode}
+                    style={styles.camera}
+                    ratio={'16:9'}
+                >
+                    <ContainerButtonsCamera>
+                        <BtnCapture onPress={CapturePhoto} />
+                        <BtnFlip onPress={() => setCameraType(cameraType === CameraType.front ? CameraType.back : CameraType.front)}>
+                            <MaterialCommunityIcons name="camera-flip" size={35} color="white" />
+                        </BtnFlip>
+                    </ContainerButtonsCamera>
+                </Camera>
+                <StatusBar hidden={true} />
+            </Modal>
 
-                <ContainerButtonsCamera>
-                    <BtnFlash onPress={() => setFlashMode(flashMode == FlashMode.off ? FlashMode.on : FlashMode.off)}>
-                        <Ionicons name="flash" size={30} color="white" />
-                    </BtnFlash>
+            {openModal && (
+                <Modal
+                    animationType="slide"
+                    visible={openModal}
+                    onRequestClose={() => setOpenModal(false)}
+                >
+                    <ConatinerImage>
 
-                    <BtnCapture onPress={() => CapturePhoto()} />
+                        <Photo source={{ uri: photo }} />
 
-                    <BtnFlip onPress={() => setCameraType(cameraType == CameraType.front ? CameraType.back : CameraType.front)}>
-                        <MaterialCommunityIcons name="camera-flip" size={35} color="white" />
-                    </BtnFlip>
-                </ContainerButtonsCamera>
-            </Camera>
+                        <Container heightContainer={45} flexDirection={"row"} justifyContent={"space-around"} style={{ marginTop: 50, paddingLeft: 5, paddingRight: 5 }}>
+                            <ButtonDisable
+                                onPress={() => setOpenModal(false)}
+                                widthButton={40}
+                            >
+                                <TitleButton>REFAZER</TitleButton>
+                            </ButtonDisable>
 
-            <StatusBar hidden={true} />
-        </Modal>
+                            <CustomButton
+                                onPress={() => {
+                                    setOpenModal(false); 
+                                    onClose();
+                                }}
+                                widthButton={45}
+                            >
+                                <TitleButton>CONFIRMAR</TitleButton>
+                            </CustomButton>
+
+                        </Container>
+
+                    </ConatinerImage>
+                </Modal>
+            )}
+        </>
     );
 };
 
 export default ModalCamera;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     camera: {
         flex: 1,
         width: '100%',
         height: '100%'
     },
-})
+});
