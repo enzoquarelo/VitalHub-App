@@ -6,7 +6,7 @@ import { UserProfilePhotoHeaderContain } from './style'
 
 export const Header = ({imageHeader, profileName}) => {
     return (
-        <HeaderContainer style={{position: "absolute", top: 0}}>
+        <HeaderContainer>
 
             <HeaderUserProfile>
 

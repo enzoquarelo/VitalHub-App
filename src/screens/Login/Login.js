@@ -77,7 +77,7 @@ export const Login = ({ navigation }) => {
 
             <Container style={{ marginTop: 10 }} widthContainer={"290px"} heightContainer={"30px"} flexDirection={"row"} justifyContent={"start"}>
                 <DefaultText fontFamily={"MontserratAlternates_600SemiBold"} fontSize={16} colorTxt={"#4E4B59"}>Não tem conta?</DefaultText>
-                <Links colorLink={"#496BBA"} fontLink={"MontserratAlternates_600SemiBold"} fontSize={16} onPress={() => { navigation.navigate("CreateAccount") }}>Crie uma conta agora!</Links>
+                <Links colorLink={"#496BBA"} fontLink={"MontserratAlternates_600SemiBold"} fontSize={16} onPress={() => { navigation.navigate("CreateAccount") }} style={{textAlign: 'start'}}>Crie uma conta agora!</Links>
             </Container>
 
         </Container>

@@ -21,7 +21,7 @@ export const ImagePerson = styled.Image`
     border-radius: 5px;
 `
 export const AppointmentTime = styled.View`
-    width: 100px;
+    width: 80px;
     height:26px;
 
     display: flex;
@@ -30,6 +30,7 @@ export const AppointmentTime = styled.View`
     justify-content: space-around;
 
     background-color: #E8FCFD;
+    border-radius: 5px;
 `
 
 export const TimeTxt = styled.Text`

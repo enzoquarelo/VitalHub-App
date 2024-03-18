@@ -5,10 +5,11 @@ import { Header } from "../../components/Header/Header"
 import { StatusBar } from "expo-status-bar";
 import CalendarHome from "../../components/CalendarHome/CalendarHome";
 import { SelectableButton, SelectableTitleButton } from "../../components/Button/styles";
+import { Cards } from "../../components/Cards/Cards";
 
 
 export const Home = ({ navigation }) => {
-    const [selectedAgendadas, setSelectedAgendadas] = useState(false);
+    const [selectedAgendadas, setSelectedAgendadas] = useState(true);
     const [selectedRealizadas, setSelectedRealizadas] = useState(false);
     const [selectedCanceladas, setSelectedCanceladas] = useState(false);
 
@@ -35,7 +36,7 @@ export const Home = ({ navigation }) => {
 
     return (
         <>
-            <Container>
+            <Container justifyContent={'start'}>
                 <StatusBar style="light" />
                 <Header imageHeader="https://avatars.githubusercontent.com/u/29419052?v=4" profileName="Dr. Eduardo" />
 
@@ -83,6 +84,8 @@ export const Home = ({ navigation }) => {
                         </SelectableTitleButton>
                     </SelectableButton>
                 </Container>
+
+                <Cards style={{marginTop: 10}}/>
             </Container></>
     );
 }
