@@ -11,15 +11,15 @@ export const NavigationScreen = ({ navigation }) => {
             <Container>
                 <StatusBar style="light" />
 
-                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                <TouchableOpacity onPress={() => navigation.navigate("Login")} style={{padding: 30}}>
                     <Text>Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("AppointmentLocation")}>
+                <TouchableOpacity onPress={() => navigation.navigate("AppointmentLocation")} style={{padding: 30}}>
                     <Text>Maps</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("ViewPrescription")}>
+                <TouchableOpacity onPress={() => navigation.navigate("ViewPrescription")} style={{padding: 30}}>
                     <Text>ViewPrescription</Text>
                 </TouchableOpacity>
             </Container></>

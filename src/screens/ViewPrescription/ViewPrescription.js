@@ -113,7 +113,6 @@ Duração: 3 dias"
                 <Links colorLink={"#344F8F"} fontSize={18} widthLink={100} style={{ paddingBottom: 20 }}>Voltar</Links>
             </Container>
 
-            //Modal que acessa a camera
             <ModalCamera
                 visible={modalVisible}
                 onClose={() => setModalVisible(false)}

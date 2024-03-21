@@ -6,12 +6,14 @@ export const CardContainer = styled.TouchableOpacity`
 
     background-color: #FFFFFF;
     border-radius: 5px;
-    elevation: 6;
+    elevation: 8;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+
+    margin-top: 5%;
 `
 
 export const ImagePerson = styled.Image`
@@ -27,7 +29,7 @@ export const AppointmentTime = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 
     background-color: #E8FCFD;
     border-radius: 5px;
@@ -37,5 +39,10 @@ export const TimeTxt = styled.Text`
     color: #49B3BA;
 
     font-family: "Quicksand_600SemiBold";
-    font-size: 14px;
+    font-size: 16px;
+`
+
+export const ButtonLinkCancel = styled.TouchableOpacity`
+    width: 40%;
+    padding: 5px;
 `

@@ -85,7 +85,7 @@ export const Home = ({ navigation }) => {
                     </SelectableButton>
                 </Container>
 
-                <Cards style={{marginTop: 10}}/>
+                <Cards/>
             </Container></>
     );
 }

@@ -64,7 +64,7 @@ export const Login = ({ navigation }) => {
                 <DefaultText style={{marginLeft: 4}} fontSize={16} colorText={"#34898F"}>Mostrar Senha</DefaultText>
             </Container>
 
-            <Links style={{ marginTop: 8, marginBottom: 30 }} onPress={() => { navigation.navigate("RecoverPassword") }}>Esqueceu a senha?</Links>
+            <Links style={{ marginTop: 8, marginBottom: 30, textAlign: 'start' }} onPress={() => { navigation.navigate("RecoverPassword") }}>Esqueceu a senha?</Links>
 
             <CustomButton onPress={() => {navigation.navigate("Home")}}>
                 <TitleButton>ENTRAR</TitleButton>
